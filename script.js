@@ -3,7 +3,7 @@ const map = new mapboxgl.Map({
 container: 'my-map', // map container ID 
 style: 'mapbox://styles/elena-anishch/cm6ietade00tn01qma2zw0fqw', // style URL 
 center: [-79.4,43.63], // starting position [lng, lat] 
-zoom: 4, // starting zoom level 
+zoom: 12, // starting zoom level 
 }); 
 
 map.on('load', () => { 
@@ -41,5 +41,18 @@ map.on('load', () => {
         } 
  
     }); 
- 
+ // Add a data source from a GeoJSON file 
+map.addSource('buildings-data', { 
+    type: 'geojson', 
+    data: 'https://raw.githubusercontent.com/Elena-Anishch/ggr472-exw5/main/wk5-data/buildings.geojson', // Your URL to your buildings.geojson file 
+    }); 
+    map.addLayer({ 
+    'id': 'buildings-point', 
+    'type': 'circle', 
+    'source': 'buildings-data', 
+    'paint': { 
+    'circle-radius': 5, 
+    'circle-color': '#007cbf' 
+    } 
+    }); 
 });
