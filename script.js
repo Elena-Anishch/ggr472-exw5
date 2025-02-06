@@ -74,10 +74,9 @@ map.on('load', () => {
             'fill-outline-color': 'black'
         },
         'source-layer': 'torontoct-53j7j1' // Tileset NAME (diff to ID), get this from mapbox tileset page
-    }
-        , 'uoft-buildings' // Drawing order - places layer below points 
+    },
+        'uoft-buildings' // Drawing order - places layer below points 
         // Here the addlayer method takes 2 arguments (the layer as an object and a string for another layer's name). If the other layer already exists, the new layer 
         //will be drawn before that one 
     );
-    'uoft-buildings'
 });
